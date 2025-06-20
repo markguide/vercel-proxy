@@ -6,8 +6,8 @@
        ],
          "routes": [
          {
-           "src": "/api/(.*)",
-           "dest": "generate1.js"
+           "source": "/api/(.*)",
+           "destination": "generate1.js"
          }
        ]
 }
