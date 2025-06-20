@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
 
-  const { prompt } = req.body;
-
-  if (!prompt) {
-    return res.status(400).json({ error: 'Prompt is required' });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Only POST allowed' });
   }
+  
+
 
   try {
     const openaiRes = await axios.post(
@@ -27,6 +27,7 @@ export default async function handler(req, res) {
     );
 
     res.status(200).json(openaiRes.data);
+    
   } catch (error) {
     console.error(error.response?.data || error.message);
     res.status(500).json({ error: 'OpenAI API error', details: error.message });
