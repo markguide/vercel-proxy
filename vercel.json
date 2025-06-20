@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api",
-      "destination": "https://acme.com/api"
+      "destination": "https://onet.pl"
     }
   ]
 }
