@@ -2,12 +2,6 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Only POST allowed' });
-  }
-  
-
-
   try {
     const openaiRes = await axios.post(
       'https://api.openai.com/v1/chat/completions',
