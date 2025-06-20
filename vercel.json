@@ -7,7 +7,7 @@
          "routes": [
          {
            "src": "/api/(.*)",
-           "destination": "generate1.js"
+           "dest": "generate1.js"
          }
        ]
 }
