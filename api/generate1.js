@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     );
 
     //## res.status(200).json(openaiRes.data);
-    res.json(openaiRes.data.choices[0]);
+    res.json(openaiRes.data.choices[0].message);
     
   } catch (error) {
     console.error(error.response?.data || error.message);
