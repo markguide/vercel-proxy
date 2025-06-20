@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "genetate.js",
+      "src": "genetate1.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/generate.js"
+      "dest": "/generate1.js"
     }
   ]
 }
