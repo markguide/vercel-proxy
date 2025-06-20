@@ -20,8 +20,8 @@ export default async function handler(req, res) {
       }
     );
 
-    res.status(200).json(openaiRes.data);
-    res.json(openaiRes.data.choices[0].text);
+    //## res.status(200).json(openaiRes.data);
+    res.json(openaiRes.data.choices[0].content);
     
   } catch (error) {
     console.error(error.response?.data || error.message);
