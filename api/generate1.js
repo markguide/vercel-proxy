@@ -4,9 +4,9 @@ export default async function handler(req, res) {
 
   const { role , content , model , messages , temperature } = req.body;
 
-  if (!model || !messages || !temperature ) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
+  // if (!model || !messages || !temperature ) {
+  //   return res.status(400).json({ error: 'Missing required fields' });
+  // }
   
   try {
     const openaiRes = await axios.post(
