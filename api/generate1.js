@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are an author writing poems.' },
-          { role: 'user', content: "swan in the zoo" }
+          { role: 'user', content: req.body.messages }
         ]
       },
       {
