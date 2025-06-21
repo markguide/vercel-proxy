@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
 
-  const { model , messages , temperature } = req.body;
+  const { role , content , model , messages , temperature } = req.body;
 
   if (!model || !messages || !temperature ) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are an author writing poems.' },
-          { role: 'user', content: messages }
+          { role: 'user', content: content }
         ]
       },
       {
