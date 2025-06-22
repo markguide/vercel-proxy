@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     
   } catch (error) {
     console.error(error.response?.data || error.message);
-//    res.status(500).json({ error: 'OpenAI API error', details: error.message });
-    res.status(500).json({ req.body });
+//##    res.status(500).json({ error: 'OpenAI API error', details: error.message });
+    res.status(500).json({ error.message });
   }
 }
