@@ -14,8 +14,7 @@ export default async function handler(req, res) {
         model,
         messages,
         temperature,
-        max_tokens: 1500
-  //      max_tokens: max_tokens || 1500
+        max_tokens: max_tokens || 1500
       },
       {
         headers: {
