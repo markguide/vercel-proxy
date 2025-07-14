@@ -7,27 +7,27 @@ const openai = new OpenAI({
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
- //   return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Only POST method is allowed' });
   }
 
-  const { prompt } = req.body;
+  const { model, temperature, max_tokens, messages } = req.body;
 
-  if (!prompt) {
-    return res.status(400).json({ error: 'Prompt is required' });
+  if (!model || !messages || !Array.isArray(messages)) {
+    return res.status(400).json({ error: 'Missing or invalid required parameters' });
   }
 
   try {
-    const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
-      messages: [{ role: 'user', content: prompt }],
-      max_tokens: 500,
-      temperature: 0.7,
+    const completion = await openai.chat.completions.create({
+      model,
+      messages,
+      temperature: temperature ?? 0.7,
+      max_tokens: max_tokens ?? 300,
     });
 
-    const message = response.choices[0].message.content.trim();
-    res.status(200).json({ result: message });
-  } catch (error) {
-    console.error('OpenAI error:', error);
-    res.status(500).json({ error: 'Error generating response' });
+    const result = completion.choices[0]?.message?.content?.trim() || '';
+    res.status(200).json({ result });
+  } catch (err) {
+    console.error('OpenAI error:', err);
+    res.status(500).json({ error: 'Something went wrong with OpenAI API' });
   }
 }
