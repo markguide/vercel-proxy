@@ -1,9 +1,10 @@
 {
   "name": "vercel-proxy",
   "version": "1.0.0",
-  "type": "module",
+  "description": "API proxy do OpenAI dla aplikacji mobilnej"
   "dependencies": {
     "axios": "^1.6.8",
     "openai": "^4.30.0"  // jeśli używasz oficjalnej biblioteki openai
-  }
+  },
+  "type": "module"
 }
