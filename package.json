@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "openai": "^4.50.0"
+    "axios": "^1.6.8",
+    "openai": "^4.30.0"  // jeśli używasz oficjalnej biblioteki openai
   }
 }
